@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Hartye" />
+    <meta name="description" content="Site de testes" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <link rel="stylesheet" href="/style/style.css" />
+  </head>
+
+  <body onload="DOM.loadDate()">
+    <section class="container">
+      <main>
+        <div class="canvas">
+          <div class="search">
+            <input
+              type="text"
+              name="search"
+              id="myInput"
+              onkeyup="DOM.runFun()"
+              autocomplete="off"
+            />
+          </div>
+          <div class="options">
+            <ul id="myUl">
+              <% Joke.forEach(joke => { %>
+              <li>
+                <p>
+                  <b>Type: </b><%= joke.type %> <br />
+                  <b>Setup: </b><%= joke.setup %> <br />
+                  <b>Punchline: </b><%= joke.punchline %>
+                </p>
+              </li>
+              <% }) %>
+            </ul>
+          </div>
+        </div>
+        <div class="controls">
+          <button onclick="DOM.toTop()">Top</button>
+          <a href="/anotherJoke"><button class="rightArea">Refresh</button></a>
+        </div>
+      </main>
+    </section>
+    <footer>
+      <div class="copy">&copy; <span class="date"></span> Hartye</div>
+    </footer>
+    <script src="/script/script.js"></script>
+  </body>
+</html>
